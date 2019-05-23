@@ -1,0 +1,5 @@
+#!/bin/sh
+
+add-apt-repository ppa:phoerious/keepassxc
+apt-get update
+apt-get install keepassxc -y

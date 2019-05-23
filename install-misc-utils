@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Useful
+apt-get install curl -y
+
+# Python ssl
+apt-get install libssl-dev -y
+
+# Music conversion to mp3
+apt-get install ffmpeg -y
+
+# Get sensor data
+apt-get install lm-sensors -y
+
+# System performance
+apt-get install htop -y
+
+# Lint shell scripts
+apt-get install shellcheck -y
+
+# VIM
+apt-get install vim -y
+
+# Suckless stuff 
+apt-get install libx11-dev -y

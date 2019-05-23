@@ -1,0 +1,20 @@
+#!/bin/sh
+
+PYTHON_VERSION="2.7.16"
+
+FTP_URL="https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz"
+
+PYTHON_DL_DIR="Python-$PYTHON_VERSION"
+
+curl -L $FTP_URL -o $PYTHON_DL_DIR.tgz
+tar -zxvf $PYTHON_DL_DIR.tgz
+
+cd $PYTHON_DL_DIR
+make clean
+./configure --prefix=$HOME/.local
+make
+make install
+
+cd ..
+rm $PYTHON_DL_DIR.tgz
+rm -rf $PYTHON_DL_DIR

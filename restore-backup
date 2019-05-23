@@ -1,0 +1,26 @@
+#!/bin/sh
+
+BACKUP_DRIVE_NAME="Maxtor"
+
+BACKUP_DIR_NAME="backup/Files"
+
+BACKUP_DIR_PATH="/media/$USER/$BACKUP_DRIVE_NAME/$BACKUP_DIR_NAME"
+
+RESTORE_LOCATION="$HOME/files"
+
+
+if [ ! -e $BACKUP_DIR_PATH ]
+then
+    echo "Backup directory not found: $BACKUP_DIR_PATH"
+    exit 1
+fi
+
+if  [ -e $RESTORE_LOCATION ]
+then
+    echo "Restore location found: $RESTORE_LOCATION, overwriting..."
+    rm -rf $RESTORE_LOCATION
+fi
+
+echo "Restoring backup from $BACKUP_DIR_PATH into $RESTORE_LOCATION ..."
+
+cp -r $BACKUP_DIR_PATH $RESTORE_LOCATION

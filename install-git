@@ -1,0 +1,21 @@
+#!/bin/sh
+
+USER_NAME="Carlo Camurri"
+USER_EMAIL="carlo.camurri98@gmail.com"
+
+CORE_EDITOR="vim"
+
+apt-get install git -y
+
+apt-get install libsecret-1-0 libsecret-1-dev -y
+cd /usr/share/doc/git/contrib/credential/libsecret
+make
+git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+
+git config --global user.name $USER_NAME
+git config --global user.email $USER_EMAIL
+
+git config --global core.editor $CORE_EDITOR
+
+echo "Git setup complete"
+git config -l

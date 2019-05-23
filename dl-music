@@ -1,0 +1,6 @@
+#!/bin/sh
+
+DEST_DIR="$HOME/files/music/hype"
+
+cd $DEST_DIR
+youtube-dl --extract-audio --audio-format mp3 $1

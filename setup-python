@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Assuming Python is installed already in $HOME/.local
+
+LOCAL_BIN_DIR="$HOME/.local/bin"
+
+# If there is no default python binary and python2 is installed
+if [ ! -e $LOCAL_BIN_DIR/python ] && [ -e $LOCAL_BIN_DIR/python2 ]
+then
+    # Symlink python2 to python
+    echo "Symlinking python2 to python..."
+    ln -s $LOCAL_BIN_DIR/python2 $LOCAL_BIN_DIR/python
+fi
+
+# Install pip
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py  
+rm get-pip.py
+
+
