@@ -1,6 +1,16 @@
 #!/bin/sh
 
+SCRIPTS_DIR="$HOME/scripts"
+
 DEST_DIR="$HOME/files/music/hype"
+
+YOUTUBE_DL_PATH="$SCRIPTS_DIR/youtube-dl"
+
+if [ ! -e "$YOUTUBE_DL_PATH" ]
+then
+    curl -L https://yt-dl.org/downloads/latest/youtube-dl -o "$YOUTUBE_DL_PATH"
+    chmod +x "$YOUTUBE_DL_PATH"
+fi
 
 cd $DEST_DIR
 youtube-dl --extract-audio --audio-format mp3 $1
