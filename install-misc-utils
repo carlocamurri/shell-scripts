@@ -22,4 +22,5 @@ apt-get install shellcheck -y
 apt-get install vim -y
 
 # Suckless stuff 
-apt-get install libx11-dev -y
+apt-get install libx11-dev libxft-dev libxinerama-dev -y
+
