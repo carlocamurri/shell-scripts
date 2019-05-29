@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PYTHON_VERSION="2.7.16"
+PYTHON_VERSION="3.5.7"
 
 FTP_URL="https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz"
 
