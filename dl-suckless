@@ -1,0 +1,27 @@
+#!/bin/sh
+
+SUCKLESS_DIRNAME="suckless"
+SUCKLESS_DIR="$HOME/$SUCKLESS_DIRNAME"
+
+SUCKLESS_CONFIG_DIRNAME="suckless-configs"
+SUCKLESS_CONFIG_DIR="$HOME/$SUCKLESS_CONFIG_DIRNAME"
+
+PROGNAME="$1"
+
+# Make sure suckless dir is present
+if [ ! -d "$SUCKLESS_DIR" ]
+then
+    mkdir "$SUCKLESS_DIR"
+fi
+
+# Make sure config dir is present
+if [ ! -d "$SUCKLESS_CONFIG_DIR" ]
+then
+    git clone https://github.com/carlocamurri/suckless-configs.git "$SUCKLESS_CONFIG_DIR"
+fi
+
+git clone "https://git.suckless.org/$1" "$SUCKLESS_DIR/$1"
+
+# Change install directory
+sed -i 's/\/usr\/local/\$\{HOME\}\/.local/g' "$SUCKLESS_DIR/$1/config.mk"
+
