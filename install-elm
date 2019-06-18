@@ -1,0 +1,18 @@
+#!/bin/sh
+
+ELM_VERSION=0.19.0
+
+if [ ! -z "$1" ]
+then
+    ELM_VERSION="$1"
+fi
+
+echo "Installing elm version $ELM_VERSION"
+
+wget --output-document=elm.gz "https://github.com/elm/compiler/releases/download/$ELM_VERSION/binary-for-linux-64-bit.gz"
+
+gzip -d elm.gz
+
+chmod +x elm
+
+mv elm "$HOME/.local/bin"

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+SCRIPTS_DIRNAME="scripts"
+SCRIPTS_DIR="$HOME/$SCRIPTS_DIRNAME"
+
+SHEBANG="#!/bin/sh"
+
+if [ -z "$1" ]
+then
+    echo "Please provide a filename"
+    exit 1
+fi
+
+echo "$SHEBANG" > "$SCRIPTS_DIR/$1"
+chmod +x "$SCRIPTS_DIR/$1"
+
+vim "$SCRIPTS_DIR/$1"

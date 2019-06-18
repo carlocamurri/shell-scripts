@@ -1,13 +1,13 @@
 #!/bin/sh
 
-FILES_DIR="$HOME/files"
-
-BACKUP_DIR="/media/$USER/Maxtor/backup"
+. "$HOME/scripts/scripts-config"
 
 if [ ! -d $BACKUP_DIR ]
 then
     echo "Backup directory not found"
     exit 1
 fi
+
+echo "Backing up into $BACKUP_DIR"
 
 rsync -avEh --progress --delete "$FILES_DIR" "$BACKUP_DIR"

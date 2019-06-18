@@ -1,0 +1,13 @@
+#!/bin/sh
+
+. scripts-config
+
+if [ ! -d "$SUCKLESS_DIR/$1" ]
+then
+    echo "No suckless program found: $1"
+    exit 1
+fi
+
+cd "$SUCKLESS_DIR/$1"
+
+make clean install
