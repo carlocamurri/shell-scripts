@@ -1,12 +1,18 @@
 #!/bin/sh
 
-PYTHON_VERSION="3.5.7"
+if [ -z "$1" ]
+then
+    echo "No Python version specified"
+    exit 1
+fi
+
+PYTHON_VERSION=$1
 
 FTP_URL="https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz"
 
 PYTHON_DL_DIR="Python-$PYTHON_VERSION"
 
-curl -L $FTP_URL -o $PYTHON_DL_DIR.tgz
+curl -L $FTP_URL -o $PYTHON_DL_DIR.tgz || exit 1
 tar -zxvf $PYTHON_DL_DIR.tgz
 
 cd $PYTHON_DL_DIR

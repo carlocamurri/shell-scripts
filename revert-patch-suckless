@@ -1,0 +1,19 @@
+#!/bin/sh
+. scripts-config
+
+PROGRAM_NAME=$1
+
+if [ -z "$PROGRAM_NAME" ]
+then
+    echo "Please provide a program name"
+fi
+
+cd "$SUCKLESS_DIR/$PROGRAM_NAME" || exit 1
+
+for ORIG_FILE in *.orig
+do
+    FILE=${ORIG_FILE%.orig}
+    mv $ORIG_FILE $FILE
+done
+
+rm -f *.rej

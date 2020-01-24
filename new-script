@@ -4,6 +4,7 @@ SCRIPTS_DIRNAME="scripts"
 SCRIPTS_DIR="$HOME/$SCRIPTS_DIRNAME"
 
 SHEBANG="#!/bin/sh"
+SOURCE_CONFIG=". scripts-config"
 
 if [ -z "$1" ]
 then
@@ -11,7 +12,8 @@ then
     exit 1
 fi
 
-echo "$SHEBANG" > "$SCRIPTS_DIR/$1"
+echo "$SHEBANG" >> "$SCRIPTS_DIR/$1"
+echo "$SOURCE_CONFIG" >> "$SCRIPTS_DIR/$1"
 chmod +x "$SCRIPTS_DIR/$1"
 
 vim "$SCRIPTS_DIR/$1"

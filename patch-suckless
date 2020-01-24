@@ -1,0 +1,27 @@
+#!/bin/sh
+. scripts-config
+
+# Expects: [program name] [diff url]
+
+PROGRAM_NAME="$1"
+DIFF_URL="$2"
+DIFF_FILE="$(basename $DIFF_URL)"
+
+if [ -z "$PROGRAM_NAME" ]
+then
+    echo "Please provide a program name"
+    exit 1
+elif [ -z "$DIFF_URL" ]
+then
+    echo "Please provide a diff url"
+    exit 1
+fi
+
+cd "$SUCKLESS_DIR/$PROGRAM_NAME" || exit 1
+
+curl -o "$DIFF_FILE" "$DIFF_URL"
+
+patch -b < "$DIFF_FILE"
+
+rm "$DIFF_FILE"
+

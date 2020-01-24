@@ -1,5 +1,8 @@
 #!/bin/sh
 
-cd $HOME || exit 1
+vim_dir="$HOME/.vim"
 
-git clone https://github.com/carlocamurri/vim-config.git .vim
+vim_config_url="https://github.com/carlocamurri/vim-config.git"
+
+git clone "$vim_config_url" "$vim_dir"
+

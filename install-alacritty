@@ -1,0 +1,6 @@
+#!/bin/sh
+. scripts-config
+
+add-apt-repository ppa:mmstick76/alacritty
+
+apt-get install alacritty
