@@ -19,3 +19,4 @@ git config --global core.editor $CORE_EDITOR
 
 echo "Git setup complete"
 git config -l
+

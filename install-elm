@@ -16,3 +16,4 @@ gzip -d elm.gz
 chmod +x elm
 
 mv elm "$HOME/.local/bin"
+

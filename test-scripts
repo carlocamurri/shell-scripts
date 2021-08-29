@@ -1,0 +1,48 @@
+#!/usr/bin/env bats
+
+
+workdir="./workdir"
+logfile="./log_test-scripts.txt"
+
+
+log() {
+    echo "$(date +"%T"): $@" >> "$logfile"
+}
+
+
+setup() {
+    mkdir -p "$workdir" 
+    SCRIPTS_DIR="$workdir"
+}
+
+
+@test "new script created in scripts directory" {
+    source create-new-script "some-new-script"
+    [ -f "$workdir/some-new-script" ]
+}
+
+
+# Does not check for trailing newlines
+@test "new script is created with correct content" {
+    source create-new-script "some-new-script"
+    [ $(cat "$workdir/some-new-script") = $(printf "#!/bin/sh") ]
+}
+
+
+@test "new script is executable" {
+    source create-new-script "some-new-script"
+    [ -x "$workdir/some-new-script" ]
+}
+
+
+@test "errors if no filename is provided" {
+    run create-new-script
+    log "$output"
+    [ "$status" -ne 0 ]
+}
+
+
+teardown() {
+    rm -rf "$workdir"
+}
+

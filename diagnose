@@ -1,0 +1,15 @@
+#!/bin/sh
+
+green="\033[0;32m"
+red="\033[0;31m"
+no_color="\033[0m"
+
+
+# Bats installed
+echo "Checking Bats (Bash Automated Testing System) installation..."
+if bats --version; then
+    echo "${green}OK${no_color}"
+else
+    echo "${red}Error${no_color}"
+fi
+

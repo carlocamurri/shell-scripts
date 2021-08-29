@@ -1,16 +1,15 @@
 #!/bin/sh
 
-SCRIPTS_DIR="$HOME/scripts"
+echo "scripts: $SCRIPTS_DIR"
 
-DEST_DIR="$HOME/files/music/hype"
+youtube_dl_path="$SCRIPTS_DIR/youtube-dl"
 
-YOUTUBE_DL_PATH="$SCRIPTS_DIR/youtube-dl"
-
-if [ ! -e "$YOUTUBE_DL_PATH" ]
+if [ ! -e "$youtube_dl_path" ]
 then
-    curl -L https://yt-dl.org/downloads/latest/youtube-dl -o "$YOUTUBE_DL_PATH"
-    chmod +x "$YOUTUBE_DL_PATH"
+    curl -L https://yt-dl.org/downloads/latest/youtube-dl -o "$youtube_dl_path"
+    chmod a+rx "$youtube_dl_path"
 fi
 
-cd $DEST_DIR
-youtube-dl --extract-audio --audio-format mp3 $1
+cd $MUSIC_DIR
+youtube-dl --extract-audio --audio-format mp3 "$1"
+

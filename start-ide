@@ -1,0 +1,13 @@
+#!/bin/sh
+session="ide"
+
+tmux start-server
+
+tmux new-session -d -s $session -x $(tput cols) -y $(tput lines)
+tmux split-window -v -p 15
+
+tmux select-pane -t 0
+tmux send-keys "vim" Enter
+
+tmux attach-session -t $session
+

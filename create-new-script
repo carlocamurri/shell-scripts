@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+    echo "Please provide a filename"
+    exit 1
+fi
+
+shebang="#!/bin/sh"
+
+echo "$shebang" >> "$SCRIPTS_DIR/$1" || exit 1
+chmod +x "$SCRIPTS_DIR/$1"
+

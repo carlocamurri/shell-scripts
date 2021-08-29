@@ -1,0 +1,7 @@
+#!/bin/sh
+
+git clone https://github.com/bats-core/bats-core.git || exit 1
+cd bats-core || exit 1
+./install.sh "$HOME/.local"
+cd .. && rm -rf bats-core
+

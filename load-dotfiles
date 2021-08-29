@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ ! -d "$HOME/dotfiles" ]; then
+    git clone https://github.com/carlocamurri/dotfiles.git "$HOME/dotfiles"
+fi
+
+for file in "$HOME/dotfiles"/.*; do
+    if [ -f $file ]; then
+        echo $file
+        ln -sf "$file" "$HOME"
+    fi
+done
+

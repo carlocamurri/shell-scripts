@@ -1,8 +1,16 @@
 #!/bin/sh
 
-. "$HOME/scripts/scripts-config"
+if [ -z "$BACKUP_DIR" ]; then
+    echo "BACKUP_DIR is not set"
+    exit 1
+fi
 
-if [ ! -d $BACKUP_DIR ]
+if [ -z "$FILES_DIR" ]; then
+    echo "FILES_DIR is not set"
+    exit 1
+fi
+
+if [ ! -d "$BACKUP_DIR" ]
 then
     echo "Backup directory not found"
     exit 1
@@ -11,3 +19,4 @@ fi
 echo "Backing up into $BACKUP_DIR"
 
 rsync -avEh --progress --delete "$FILES_DIR" "$BACKUP_DIR"
+

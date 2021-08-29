@@ -1,0 +1,5 @@
+* Remove sourcing scripts-config in favor of env file
+* shellcheck
+* Rename load to link
+* installers for *env (pyenv etc)
+
